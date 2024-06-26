@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                 mutableStateOf("Josué")
             }
             var show by remember {
-                mutableStateOf(false
+                mutableStateOf(false)
             }
 
             ComposeCatalogTheme {
