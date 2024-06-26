@@ -2,6 +2,7 @@ package com.example.composecatalog
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,7 +21,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.composecatalog.examples.MyConfirmationDialog
+import com.example.composecatalog.examples.MyCustomDialog
 import com.example.composecatalog.examples.MyDialog
+import com.example.composecatalog.examples.MySimpleCustomDialog
 import com.example.composecatalog.examples.getOptions
 import com.example.composecatalog.ui.theme.ComposeCatalogTheme
 
@@ -54,15 +58,9 @@ class MainActivity : ComponentActivity() {
                                 Text(text = "Show")
                             }
                         }
-                        MyDialog(
-                            show = show,
-                            onDismiss = {
-                                show = false
-                            },
-                            onConfirm = {
-                                Log.i("DialogButton", "Clicked!")
-                            }
-                        )
+                        MyConfirmationDialog(show = show) {
+
+                        }
                     }
                 }
             }
@@ -97,6 +95,19 @@ fun DefaultPreview() {
         //BasicSlider()
         //AdvanceSlider()
         //MyRangeSlider()
+        /*MyCustomDialog(
+            show = true,
+            title = "Setup backup account",
+            onAccountSelect = {
+
+            },
+            onDismiss = {
+
+            }
+        )*/
+        MyConfirmationDialog(show = true) {
+            
+        }
     }
 }
 

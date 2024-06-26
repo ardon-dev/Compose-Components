@@ -31,7 +31,7 @@ fun MyRadioButtonList(name: String, onItemSelected: (String) -> Unit) {
     Column(
         Modifier.fillMaxWidth()
     ) {
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(
                 selected = name == "Ejemplo 1",
                 onClick = {
@@ -40,7 +40,7 @@ fun MyRadioButtonList(name: String, onItemSelected: (String) -> Unit) {
             )
             Text(text = "Ejemplo 1")
         }
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(
                 selected = name == "Ejemplo 2",
                 onClick = {
@@ -49,7 +49,7 @@ fun MyRadioButtonList(name: String, onItemSelected: (String) -> Unit) {
             )
             Text(text = "Ejemplo 2")
         }
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(
                 selected = name == "Ejemplo 3",
                 onClick = {
@@ -58,7 +58,7 @@ fun MyRadioButtonList(name: String, onItemSelected: (String) -> Unit) {
             )
             Text(text = "Ejemplo 3")
         }
-        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier.padding(6.dp), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(
                 selected = name == "Ejemplo 4",
                 onClick = {
