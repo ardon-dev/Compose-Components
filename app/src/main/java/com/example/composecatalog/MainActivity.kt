@@ -25,6 +25,11 @@ import com.example.composecatalog.examples.MyConfirmationDialog
 import com.example.composecatalog.examples.MyCustomDialog
 import com.example.composecatalog.examples.MyDialog
 import com.example.composecatalog.examples.MySimpleCustomDialog
+import com.example.composecatalog.examples.SimpleRecyclerView
+import com.example.composecatalog.examples.SuperHeroGridView
+import com.example.composecatalog.examples.SuperHeroStickyView
+import com.example.composecatalog.examples.SuperHeroView
+import com.example.composecatalog.examples.SuperHeroWithSpecialControl
 import com.example.composecatalog.examples.getOptions
 import com.example.composecatalog.ui.theme.ComposeCatalogTheme
 
@@ -49,18 +54,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding),
                         contentAlignment = Alignment.Center,
                     ) {
-                        Column {
-                            Button(
-                                onClick = {
-                                    show = true
-                                }
-                            ) {
-                                Text(text = "Show")
-                            }
-                        }
-                        MyConfirmationDialog(show = show) {
-
-                        }
+                        SuperHeroStickyView()
                     }
                 }
             }
@@ -105,9 +99,8 @@ fun DefaultPreview() {
 
             }
         )*/
-        MyConfirmationDialog(show = true) {
-            
-        }
+        //MyConfirmationDialog(show = true) {}
+        SimpleRecyclerView()
     }
 }
 
