@@ -25,6 +25,7 @@ import com.example.composecatalog.examples.MyConfirmationDialog
 import com.example.composecatalog.examples.MyCustomDialog
 import com.example.composecatalog.examples.MyDialog
 import com.example.composecatalog.examples.MySimpleCustomDialog
+import com.example.composecatalog.examples.ScaffoldExample
 import com.example.composecatalog.examples.SimpleRecyclerView
 import com.example.composecatalog.examples.SuperHeroGridView
 import com.example.composecatalog.examples.SuperHeroStickyView
@@ -49,14 +50,7 @@ class MainActivity : ComponentActivity() {
             }
 
             ComposeCatalogTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Box(
-                        modifier = Modifier.padding(innerPadding),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        SuperHeroStickyView()
-                    }
-                }
+                ScaffoldExample()
             }
         }
     }
