@@ -1,37 +1,28 @@
 package com.example.composecatalog
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.composecatalog.examples.MyConfirmationDialog
-import com.example.composecatalog.examples.MyCustomDialog
-import com.example.composecatalog.examples.MyDialog
-import com.example.composecatalog.examples.MySimpleCustomDialog
-import com.example.composecatalog.examples.ScaffoldExample
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.composecatalog.examples.SimpleRecyclerView
-import com.example.composecatalog.examples.SuperHeroGridView
-import com.example.composecatalog.examples.SuperHeroStickyView
-import com.example.composecatalog.examples.SuperHeroView
-import com.example.composecatalog.examples.SuperHeroWithSpecialControl
 import com.example.composecatalog.examples.getOptions
+import com.example.composecatalog.model.Routes
+import com.example.composecatalog.nav.Screen1
+import com.example.composecatalog.nav.Screen2
+import com.example.composecatalog.nav.Screen3
+import com.example.composecatalog.nav.Screen4
+import com.example.composecatalog.nav.Screen5
 import com.example.composecatalog.ui.theme.ComposeCatalogTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,9 +39,40 @@ class MainActivity : ComponentActivity() {
             var show by remember {
                 mutableStateOf(false)
             }
-
             ComposeCatalogTheme {
-                ScaffoldExample()
+                //ScaffoldExample()
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = Routes.Screen1.route) {
+                    composable(Routes.Screen1.route) {
+                        Screen1(navController)
+                    }
+                    composable(Routes.Screen2.route) {
+                        Screen2(navController)
+                    }
+                    composable(Routes.Screen3.route) {
+                        Screen3(navController)
+                    }
+                    composable(
+                        Routes.Screen4.route,
+                        arguments = listOf(navArgument("age") {
+                            type = NavType.IntType
+                        }
+                        )) { backStackEntry ->
+                        val a = backStackEntry.arguments?.getInt("age")
+                        Screen4(navController, a ?: 0)
+                    }
+                    composable(
+                        Routes.Screen5.route,
+                        arguments = listOf(
+                            navArgument("name") { defaultValue = "pepe" }
+                        )
+                    ) { navBackStackEntry ->
+                        Screen5(
+                            navController = navController,
+                            name = navBackStackEntry.arguments?.getString("name")
+                        )
+                    }
+                }
             }
         }
     }
