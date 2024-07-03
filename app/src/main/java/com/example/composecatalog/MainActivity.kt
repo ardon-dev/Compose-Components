@@ -15,7 +15,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.composecatalog.examples.ColorAnimationSimple
+import com.example.composecatalog.examples.CrossFadeExampleAnimation
 import com.example.composecatalog.examples.SimpleRecyclerView
+import com.example.composecatalog.examples.SizeAnimation
+import com.example.composecatalog.examples.VisibilityAnimation
 import com.example.composecatalog.examples.getOptions
 import com.example.composecatalog.model.Routes
 import com.example.composecatalog.nav.Screen1
@@ -31,7 +35,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-
+            ComposeCatalogTheme {
+                CrossFadeExampleAnimation()
+            }
+            /*
             val myOptions = getOptions(titles = listOf("Josué", "Edgard", "Ardón"))
             var selected by remember {
                 mutableStateOf("Josué")
@@ -74,6 +81,8 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+            *
+             */
         }
     }
 }
